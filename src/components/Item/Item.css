@@ -1,0 +1,7 @@
+.item-img {
+    width: 100px;
+}
+.item-desc {
+    display: flex;
+    justify-content: space-between;
+}

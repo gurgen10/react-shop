@@ -8,17 +8,13 @@ import ListItems from '../ItemList';
 
 
 class App extends Component {
-  searchTextCallBack = (searchText) => {
-    this.searchText = searchText;
-    console.log("MainContainer: " + this.searchText);
   
-  }
   render() {
     return (
       <div className="App">
          <Header/>
-          <Search searchTextCallBack={this.searchTextCallBack}/>
-          <ListItems searchText={this.searchText}/>
+          <Search />
+          <ListItems />
    
         
       </div>

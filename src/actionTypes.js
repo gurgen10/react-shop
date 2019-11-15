@@ -1,0 +1,4 @@
+export const CHANGE_TITLE = 'CHANGE_TITLE';
+export const CHANGE_MAX_PRICE = 'CHANGE_MAX_PRICE';
+export const ADD_TO_BUSKET ='ADD_TO_BUSKET';
+export const REMOVE_FROM_BUSKET = 'REMOVE_FROM_BUSKET';

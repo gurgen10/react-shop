@@ -8,3 +8,5 @@ const busketReducer = (state = initialSate) => {
     }
 
 }
+
+export default busketReducer;

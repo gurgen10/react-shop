@@ -1,17 +1,29 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
 
-import MainContainer from '../../containers/mainContainer';
+import Header from '../Header';
+import Search from '../Search';
+import ListItems from '../ItemList';
 
 
-function App() {
-  return (
-    <div className="App">
-      <MainContainer/>
- 
-      
-    </div>
-  );
+
+class App extends Component {
+  searchTextCallBack = (searchText) => {
+    this.searchText = searchText;
+    console.log("MainContainer: " + this.searchText);
+  
+  }
+  render() {
+    return (
+      <div className="App">
+         <Header/>
+          <Search searchTextCallBack={this.searchTextCallBack}/>
+          <ListItems searchText={this.searchText}/>
+   
+        
+      </div>
+    );
+  }
 }
 
 export default App;

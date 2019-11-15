@@ -5,7 +5,7 @@ class Item extends Component {
     state = {  }
     render() { 
         return ( 
-            <div className="card">
+            <div className="card item">
                 <h3>{this.props.item.title}</h3>
                 <img src={this.props.item.img} className="item-img" alt={this.props.item.title}/>
                 <div className="item-desc">

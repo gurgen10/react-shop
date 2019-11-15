@@ -1,7 +1,12 @@
+.item {
+    width: 200px;
+    height: 250px;
+}
 .item-img {
-    width: 100px;
+    width: 100%;
 }
 .item-desc {
+    margin-top: 5px;;
     display: flex;
     justify-content: space-between;
 }

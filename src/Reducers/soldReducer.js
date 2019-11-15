@@ -1,5 +1,3 @@
-const SOLD = 'SOLD';
-
 const initialSate = [];
 
 const busketReducer = (state = initialSate) => {

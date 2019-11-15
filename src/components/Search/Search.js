@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import { Button, Form, FormControl } from 'react-bootstrap';
 
 import {searchByTitle, searchByPrice} from '../../Actions'
 
@@ -10,6 +11,11 @@ class Search extends Component {
         this.maxPrice = 0;
         
 
+    }
+    //WARNING! To be deprecated in React v17. Use componentDidMount instead.
+    componentWillMount() {
+        this.props.onChangeTitle(this.title);
+        this.props.onChangePrice(this.maxPrice);
     }
     
     onInputTitleChange = (e)=> {
@@ -31,15 +37,12 @@ class Search extends Component {
     
     render() { 
         return ( 
-        <div>
-            <h2>Search</h2>
-            <form className="form-control">
-                <input  type='text' onChange={this.onInputTitleChange} name="searchText"/>
-                <input  type='number' onChange={this.onInputPriceChange} name="priceText"/>
-                <button className="btn btn-success" 
-                onClick={ this.onSubmit}>Search</button>
-            </form>
-        </div> 
+            <Form inline>
+                <h2>Search</h2>
+                <FormControl onChange={this.onInputTitleChange} type="text" placeholder="Search by title" className="mr-sm-2" />
+                <FormControl onChange={this.onInputPriceChange} type="number" placeholder="Search by price" className="mr-sm-2" />
+                <Button  onClick={ this.onSubmit} variant="outline-success">Search</Button>
+            </Form>
         );
     }
 }

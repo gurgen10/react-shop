@@ -1,5 +1,3 @@
-const COMMON = 'COMMON';
-
 const initialSate = {};
    
 

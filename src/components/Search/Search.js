@@ -12,16 +12,19 @@ class Search extends Component {
         
 
     }
-    //WARNING! To be deprecated in React v17. Use componentDidMount instead.
-    componentWillMount() {
+    updateSearchState() {
         this.props.onChangeTitle(this.title);
         this.props.onChangePrice(this.maxPrice);
     }
+    //WARNING! To be deprecated in React v17. Use componentDidMount instead.
+    componentWillUpdate() {
+        this.updateSearchState()
+        console.log("componentWillUpdate",this.props.title);
+    }
     
     onInputTitleChange = (e)=> {
-        
-        this.title = e.target.value;
-        
+        e.preventDefault();
+        this.title = e.target.value;  
     }
     onInputPriceChange = (e)=> {
         this.maxPrice = e.target.value;
@@ -29,18 +32,18 @@ class Search extends Component {
     } 
 
     onSubmit = (e) => {
-        e.preventDefault();
-        this.props.onChangeTitle(this.title);
-        this.props.onChangePrice(this.maxPrice);
-        console.log("OnSubmit", this.props);   
+        e.preventDefault(); 
+        this.updateSearchState();
+        console.log("OnSubmit Search", this.props);  
+        
     }
     
     render() { 
         return ( 
             <Form inline>
                 <h2>Search</h2>
-                <FormControl onChange={this.onInputTitleChange} type="text" placeholder="Search by title" className="mr-sm-2" />
-                <FormControl onChange={this.onInputPriceChange} type="number" placeholder="Search by price" className="mr-sm-2" />
+                <FormControl onChange={this.onInputTitleChange}  type="text" placeholder="Search by title" className="mr-sm-2" />
+                <FormControl onChange={this.onInputPriceChange}  type="number" placeholder="Search by price" className="mr-sm-2" />
                 <Button  onClick={ this.onSubmit} variant="outline-success">Search</Button>
             </Form>
         );
@@ -63,4 +66,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null,mapDispatchToProps) (Search);
+export default connect(mapStateToProps,mapDispatchToProps) (Search);

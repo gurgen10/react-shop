@@ -12,19 +12,19 @@ class ItemList extends Component {
         this.goods = goods;
 
     }
- 
     componentDidUpdate() {
-        
+        this.goods = goods;
+
+    }
+    
+    render() { 
         this.goods = goods.filter( item => {
             let title = this.props.title.trim().toLowerCase();
             let maxPrice = this.props.maxPrice;
             return (item.title.toLowerCase().indexOf(title) !== -1 || title === "" ) &&
              (item.price <= maxPrice ||  maxPrice === 0)
         })
-        console.log("DidUpdate",this.goods);
-    }
-    
-    render() { 
+        console.log("ListItem",this.goods);
         console.log(this.goods)
         if(this.goods.length > 0) {
             const items = this.goods.map(item => {

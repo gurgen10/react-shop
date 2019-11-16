@@ -19,23 +19,19 @@ class Search extends Component {
     //WARNING! To be deprecated in React v17. Use componentDidMount instead.
     componentWillUpdate() {
         this.updateSearchState()
-        console.log("componentWillUpdate",this.props.title);
-    }
+     }
     
     onInputTitleChange = (e)=> {
         e.preventDefault();
         this.title = e.target.value;  
     }
     onInputPriceChange = (e)=> {
-        this.maxPrice = e.target.value;
-        
+        this.maxPrice = e.target.value;  
     } 
 
     onSubmit = (e) => {
         e.preventDefault(); 
-        this.updateSearchState();
-        console.log("OnSubmit Search", this.props);  
-        
+        this.updateSearchState();   
     }
     
     render() { 
@@ -50,13 +46,7 @@ class Search extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    
-    return{
-        title : state.search.title,
-        maxPrice: state.search.maxPrice,
-    }
-}
+
 
 
 const mapDispatchToProps = dispatch => {
@@ -66,4 +56,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps) (Search);
+export default connect(null,mapDispatchToProps) (Search);

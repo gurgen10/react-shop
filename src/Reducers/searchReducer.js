@@ -1,5 +1,4 @@
-import {CHANGE_TITLE} from '../actionTypes';
-import {CHANGE_MAX_PRICE} from '../actionTypes';
+import { CHANGE_TITLE, CHANGE_MAX_PRICE } from '../actionTypes';
 
 const initialSate = {
     title: '',

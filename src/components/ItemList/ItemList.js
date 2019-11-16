@@ -24,8 +24,7 @@ class ItemList extends Component {
             return (item.title.toLowerCase().indexOf(title) !== -1 || title === "" ) &&
              (item.price <= maxPrice ||  maxPrice === 0)
         })
-        console.log("ListItem",this.goods);
-        console.log(this.goods)
+        
         if(this.goods.length > 0) {
             const items = this.goods.map(item => {
                 return(

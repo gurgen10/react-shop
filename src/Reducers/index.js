@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
-import busketReducer from './busketReducer';
+import basketReducer from './basketReducer';
 import soldReducer from './soldReducer';
 import commonReducer from './commonReducer';
 import searchReducer from './searchReducer';
 
 const rootReducer = combineReducers({
-    busket: busketReducer,
+    basket: basketReducer,
     sold: soldReducer,
     search:searchReducer,
     common:commonReducer

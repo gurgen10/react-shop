@@ -1,24 +1,22 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import {Alert, Button} from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { Alert, Button } from 'react-bootstrap';
 import './Item.css';
-import {addToBasket, removeFromBasket} from '../../Actions/basketAction'
+import { addToBasket } from '../../Actions/basketAction'
 
 class Item extends Component {
-    constructor(props) {
-        super(props);
 
-    }
     onClickAddItemToBasket = (e) => {
         e.preventDefault(); 
-        console.log("dsvfevve",this.props.basket);
+       
         this.props.addItemToBasket(this.props.item);
 
     }
     render() { 
         
-        
+        console.log(this.props);
         return ( 
+            
            <>
                 <Alert variant="success">
                     <div className="card item">
@@ -48,7 +46,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch =>  {
     return {
         addItemToBasket: (payload) => dispatch(addToBasket(payload)),
-        removeItemFromBasket: (payload) => dispatch(removeFromBasket(payload))
     }
 
 }

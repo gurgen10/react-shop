@@ -20,9 +20,10 @@ class ItemList extends Component {
     render() { 
         this.goods = goods.filter( item => {
             let title = this.props.title.trim().toLowerCase();
+            let itemTitle = item.title.trim().toLowerCase();
             let maxPrice = this.props.maxPrice;
-            return (item.title.toLowerCase().indexOf(title) !== -1 || title === "" ) &&
-             (item.price <= maxPrice ||  maxPrice === 0)
+             return (itemTitle.indexOf(title) !== -1 || title === "" ) &&
+             (item.price <= maxPrice ||  maxPrice == 0 )
         })
         
         if(this.goods.length > 0) {

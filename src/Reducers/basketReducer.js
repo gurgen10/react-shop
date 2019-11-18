@@ -5,39 +5,45 @@ const initialSate = {
 }
 
 const basketReducer = (state = initialSate, action) => {
-
- 
+    let items = state.basket;
+    
     switch(action.type) {
+        
         case ADD_TO_BASKET: {
             action.payload.quantity = 1;
-            console.log("before", action.payload);
-            let item = state.basket.map(item => {
-                if(item.id === action.payload.id) {
-                    action.payload.quantity +=  1;
-                    state.basket = state.basket.filter(item => item.id !== action.payload.id);
-                    return action.payload;
-                } 
-                return action.payload;
-            });
-            item =item || action.payload
-            console.log("after", item);
+            let founded = false;
             
-          
+            let items = state.basket.map(item => {
+                
+                if(item.id === action.payload.id) {
+                   item.quantity +=   1;
+                    founded = true;    
+                } 
+
+                return item;
+            });
+            
+            if (!founded)  {
+                items.push(action.payload)  
+            }
+            
             return  {
                 ...state,
-                basket: state.basket.concat(item)
+                basket: items
                
             }
         }
         case REMOVE_FROM_BASKET: {
+            console.log(action.payload.id);
+            let index = items.filter(item =>  item.id === action.payload.id )
+            items.splice(index, 1);
             return {
                 ...state,
-                basket: state.basket.filter(item => item.id !== action.payload.id),
+                basket: items,
             }
         }
         default: return state;
-    }
-    
+    } 
 }
 
 export default basketReducer;

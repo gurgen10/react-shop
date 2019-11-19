@@ -34,16 +34,15 @@ const basketReducer = (state = initialSate, action) => {
             }
         }
         case REMOVE_FROM_BASKET: {
-            console.log(action.payload.id);
-            let index = items.filter(item =>  item.id === action.payload.id )
-            items.splice(index, 1);
+
+            items = items.filter(item =>  item.id !== action.payload.id )
             return {
                 ...state,
                 basket: items,
             }
         }
         default: return state;
-    } 
+    }    
 }
 
 export default basketReducer;

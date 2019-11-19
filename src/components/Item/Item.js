@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Alert, Button } from 'react-bootstrap';
 import './Item.css';
-import { addToBasket } from '../../Actions/basketAction'
+import { addToBasket } from '../../Actions/basketAction';
+import { incrementBasketCount } from '../../Actions/commonAction';
 
 class Item extends Component {
 
@@ -10,11 +11,11 @@ class Item extends Component {
         e.preventDefault(); 
        
         this.props.addItemToBasket(this.props.item);
+        this.props.incrementItemsCount();
 
     }
     render() { 
         
-        console.log(this.props);
         return ( 
             
            <>
@@ -46,6 +47,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch =>  {
     return {
         addItemToBasket: (payload) => dispatch(addToBasket(payload)),
+        incrementItemsCount: () => dispatch(incrementBasketCount()),
     }
 
 }

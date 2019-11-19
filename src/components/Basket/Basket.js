@@ -6,15 +6,13 @@ import { Table } from 'react-bootstrap';
 import  BasketItem  from "../BasketItem";
 
 class Basket extends Component {
-    componentDidUpdate() {
-
-    }
+ 
 
     render() { 
         let basketArray = this.props.basket
         
-        console.log("Basket", basketArray === undefined || basketArray.length == 0);
-        const basket =(basketArray === undefined || basketArray.length == 0)? basketArray.map( basketItem => {
+        console.log("Basket", basketArray === undefined || basketArray.length === 0);
+        const basket =( basketArray.length > 0)? basketArray.map( basketItem => {
             return (
                 <tr key={basketItem.id}>
                     <BasketItem basketItem={basketItem}/>
@@ -49,7 +47,7 @@ class Basket extends Component {
 const mapStateToProps = state => {
     
     return {
-        basket : state.basket,
+        basket : state.basket.basket,
     }
 }
  

@@ -1,0 +1,10 @@
+.basket-icon-nav-container {
+    position: relative;
+}
+.basket-icon-nav-container .count-indicator {
+    font-size: 20px;
+    color: deeppink;
+    position: absolute;
+    right: 0;
+    top: -10px;
+}

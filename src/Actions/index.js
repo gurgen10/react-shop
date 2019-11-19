@@ -1,1 +1,1 @@
-export {searchByTitle, searchByPrice} from './searchAction';
+export { searchByTitle, searchByPrice } from './searchAction';

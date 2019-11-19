@@ -1,10 +1,9 @@
 const initialSate = [];
 
 const busketReducer = (state = initialSate) => {
-    return{
-        ...state
-    }
-
-}
+  return {
+    ...state
+  };
+};
 
 export default busketReducer;

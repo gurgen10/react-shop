@@ -34,12 +34,12 @@ class Item extends Component {
 
 Item.propTypes = {
   item: {
-    title: PropTypes.string.isRequired,
-    img: PropTypes.string.isRequired,
-    quantity: PropTypes.number.isRequired,
-    price: PropTypes.number.isRequired
+    title: PropTypes.string,
+    img: PropTypes.string,
+    quantity: PropTypes.number,
+    price: PropTypes.number
   },
-  addToBasket: PropTypes.func.isRequired,
+  addToBasket: PropTypes.func,
   incrementBasketCount: PropTypes.func.isRequired
 };
 

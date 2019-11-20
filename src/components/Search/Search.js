@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { Button, Form, FormControl } from 'react-bootstrap';
 
 import { searchByTitle, searchByPrice } from '../../Actions/searchAction';
+import { showLoading } from '../../Actions/commonAction';
 
 class Search extends Component {
   constructor(props) {
@@ -29,6 +30,7 @@ class Search extends Component {
 
     onSubmit = (e) => {
       e.preventDefault();
+      this.props.showLoading(true);
       this.updateSearchState();
     }
 
@@ -48,11 +50,12 @@ Search.propTypes = {
   title: PropTypes.string.isRequired,
   maxPrice: PropTypes.number.isRequired,
   searchByTitle: PropTypes.func,
-  searchByPrice: PropTypes.func
+  searchByPrice: PropTypes.func,
+  showLoading: PropTypes.func
 };
 
 const mapDispatchToProps = dispatch => {
-  return { ...bindActionCreators({ searchByTitle, searchByPrice }, dispatch) };
+  return { ...bindActionCreators({ searchByTitle, searchByPrice, showLoading }, dispatch) };
 };
 
 export default connect(null, mapDispatchToProps)(Search);

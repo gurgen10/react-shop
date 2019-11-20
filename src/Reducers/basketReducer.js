@@ -1,7 +1,8 @@
-import { ADD_TO_BASKET, REMOVE_FROM_BASKET } from '../actionTypes';
+import { ADD_TO_BASKET, REMOVE_FROM_BASKET, EMPTY_BASKET } from '../actionTypes';
 
 const initialSate = {
-  basket: []
+  basket: [],
+  totalPrice: 0
 };
 
 const basketReducer = (state = initialSate, action) => {
@@ -29,15 +30,22 @@ const basketReducer = (state = initialSate, action) => {
 
       return {
         ...state,
-        basket: [...items]
-
+        basket: [...items],
+        totalPrice: state.totalPrice + action.payload.price
       };
     }
     case REMOVE_FROM_BASKET: {
       items = items.filter(item => item.id !== action.payload.id);
       return {
         ...state,
-        basket: items
+        basket: items,
+        totalPrice: state.totalPrice - (action.payload.price * action.payload.quantity)
+      };
+    }
+    case EMPTY_BASKET: {
+      return {
+        ...state,
+        basket: []
       };
     }
     default: return state;

@@ -23,7 +23,6 @@ class App extends Component {
             <Route path="/*" component={NotFound}/>
           </Switch>
         </Router>
-        <Home />
       </div>
     );
   }

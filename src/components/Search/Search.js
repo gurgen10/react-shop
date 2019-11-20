@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { Button, Form, FormControl } from 'react-bootstrap';
 
-import { searchByTitle, searchByPrice } from '../../Actions';
+import { searchByTitle, searchByPrice } from '../../Actions/searchAction';
 
 class Search extends Component {
   constructor(props) {
@@ -13,8 +14,8 @@ class Search extends Component {
   }
 
   updateSearchState() {
-    this.props.onChangeTitle(this.title);
-    this.props.onChangePrice(this.maxPrice);
+    this.props.searchByTitle(this.title);
+    this.props.searchByPrice(this.maxPrice);
   }
 
     onInputTitleChange = (e) => {
@@ -45,14 +46,13 @@ class Search extends Component {
 
 Search.propTypes = {
   title: PropTypes.string.isRequired,
-  maxPrice: PropTypes.number.isRequired
+  maxPrice: PropTypes.number.isRequired,
+  searchByTitle: PropTypes.func,
+  searchByPrice: PropTypes.func
 };
 
 const mapDispatchToProps = dispatch => {
-  return {
-    onChangeTitle: (payload) => dispatch(searchByTitle(payload)),
-    onChangePrice: (payload) => dispatch(searchByPrice(payload))
-  };
+  return { ...bindActionCreators({ searchByTitle, searchByPrice }, dispatch) };
 };
 
 export default connect(null, mapDispatchToProps)(Search);

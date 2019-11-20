@@ -1,4 +1,4 @@
-import { BASKET_COUNT_DECREMENT, BASKET_COUNT_INCREMENT } from '../actionTypes';
+import { BASKET_COUNT_DECREMENT, BASKET_COUNT_INCREMENT, SHOW_PURCHASE_MODAL } from '../actionTypes';
 
 export function incrementBasketCount() {
   return {
@@ -9,6 +9,13 @@ export function incrementBasketCount() {
 export function decrementBasketCount(payload) {
   return {
     type: BASKET_COUNT_DECREMENT,
+    payload
+  };
+}
+
+export function showPurchaseModal(payload) {
+  return {
+    type: SHOW_PURCHASE_MODAL,
     payload
   };
 }

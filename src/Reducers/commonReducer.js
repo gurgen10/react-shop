@@ -1,7 +1,8 @@
-import { BASKET_COUNT_INCREMENT, BASKET_COUNT_DECREMENT } from '../actionTypes';
+import { BASKET_COUNT_INCREMENT, BASKET_COUNT_DECREMENT, SHOW_PURCHASE_MODAL } from '../actionTypes';
 
 const initialSate = {
-  basketItemCount: 0
+  basketItemCount: 0,
+  showPopup: false
 };
 
 const commonReducer = (state = initialSate, action) => {
@@ -13,6 +14,10 @@ const commonReducer = (state = initialSate, action) => {
     case BASKET_COUNT_DECREMENT: return {
       ...state,
       basketItemCount: state.basketItemCount - action.payload
+    };
+    case SHOW_PURCHASE_MODAL: return {
+      ...state,
+      showPopup: action.payload
     };
     default: return {
       ...state

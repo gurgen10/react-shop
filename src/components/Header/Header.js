@@ -10,19 +10,19 @@ class Header extends Component {
     return (
       <>
         <Navbar bg="light" expand="lg">
-          <Navbar.Brand ><NavLink exact to="/">Shop</NavLink></Navbar.Brand>
+          <Navbar.Brand as={NavLink} to="/" className="nav-link">Shop</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav" className="justify-cintent-between">
+          <Navbar.Collapse id="basic-navbar-nav" >
             <Nav className="mr-auto">
-              <NavLink exact to="/home">Home</NavLink>
+              <Nav.Link as={NavLink} exact to="/home" className="nav-link">Home</Nav.Link>
             </Nav>
             <Nav.Item>
-              <NavLink exact to="/basket">
+              <Nav.Link as={NavLink} exact to="/basket" className="nav-link">
                 <h3 className="basket-icon-nav-container">
                   <i className="icon-basket"></i>
                   <i className="count-indicator">{ this.props.count > 0 ? this.props.count : '' }</i>
                 </h3>
-              </NavLink>
+              </Nav.Link>
             </Nav.Item>
           </Navbar.Collapse>
         </Navbar>

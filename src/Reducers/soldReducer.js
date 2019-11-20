@@ -1,9 +1,12 @@
-const initialSate = [];
+const initialSate = {
+  soldItems: []
+};
 
-const busketReducer = (state = initialSate) => {
+const soldReducer = (state = initialSate, action) => {
   return {
-    ...state
+    ...state,
+    soldItems: action.payload
   };
 };
 
-export default busketReducer;
+export default soldReducer;

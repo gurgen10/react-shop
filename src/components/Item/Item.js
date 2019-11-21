@@ -33,19 +33,19 @@ class Item extends Component {
 }
 
 Item.propTypes = {
-  item: {
-    title: PropTypes.string,
-    img: PropTypes.string,
-    quantity: PropTypes.number,
-    price: PropTypes.number
-  },
+  basket: PropTypes.array,
+  item: PropTypes.object,
+  title: PropTypes.string,
+  img: PropTypes.string,
+  quantity: PropTypes.number,
+  price: PropTypes.number,
   addToBasket: PropTypes.func,
-  incrementBasketCount: PropTypes.func.isRequired
+  incrementBasketCount: PropTypes.func
 };
 
 const mapStateToProps = state => {
   return {
-    basket: state.basket
+    basket: state.basket.basket
   };
 };
 

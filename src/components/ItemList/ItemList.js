@@ -9,6 +9,12 @@ import Loading from '../Loading';
 import { showLoading } from '../../Actions/commonAction';
 
 class ItemList extends Component {
+  constructor(props) {
+    super(props);
+    this.props.showLoading(true);
+
+
+  }
     goods = [];
 
     fetchDate = () => {
@@ -22,7 +28,6 @@ class ItemList extends Component {
         });
 
         this.props.showLoading(false);
-        console.log('Loading ', this.props.isLoading);
       }, 1500);
     }
 

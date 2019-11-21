@@ -7,21 +7,25 @@ const initialSate = {
 
 const basketReducer = (state = initialSate, action) => {
   let items = state.basket;
-  console.log('Reducer state.basket', state.basket);
 
   switch (action.type) {
     case ADD_TO_BASKET: {
       action.payload.quantity = 1;
-
       let founded = false;
+      console.log('items', items);
+      console.log('basket', state.basket);
+      console.log('--------------');
+      
 
-      items = state.basket.map(item => {
+      items.forEach(item => {
         if (item.id === action.payload.id) {
+          console.log(item);
+
           item.quantity++;
+          console.log(item);
+
           founded = true;
         }
-
-        return item;
       });
 
       if (!founded) {

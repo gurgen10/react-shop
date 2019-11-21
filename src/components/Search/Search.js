@@ -47,8 +47,8 @@ class Search extends Component {
 }
 
 Search.propTypes = {
-  title: PropTypes.string.isRequired,
-  maxPrice: PropTypes.number.isRequired,
+  title: PropTypes.string,
+  maxPrice: PropTypes.number,
   searchByTitle: PropTypes.func,
   searchByPrice: PropTypes.func,
   showLoading: PropTypes.func

@@ -33,12 +33,11 @@ class Basket extends Component {
     const totalStyle = {
       background: 'yellow'
     };
-    console.log('totalPrice', this.props.totalPrice);
     const basketArray = this.props.basket;
     const emptyTableRow = (<tr > <td className="text-center" colSpan='6'>List Empty</td></tr>);
     const totalTableRow = (<tr style={totalStyle}>
-      <td className="text-center" colSpan='4'>Total Price</td>
-      <td className="text-center" >{this.props.totalPrice + ' ֏'}</td>
+      <td className="text-center" colSpan='4'><strong>Total Price</strong></td>
+      <td className="text-center" ><b>{this.props.totalPrice + ' ֏'}</b></td>
     </tr>);
     const basket = (basketArray.map(basketItem => {
       return (

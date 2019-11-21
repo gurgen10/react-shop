@@ -29,12 +29,12 @@ class BasketItem extends Component {
 
 BasketItem.propTypes = {
   basketItem: PropTypes.object,
-  title: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired,
-  quantity: PropTypes.number.isRequired,
-  price: PropTypes.number.isRequired,
-  removeFromBasket: PropTypes.func.isRequired,
-  decrementBasketCount: PropTypes.func.isRequired
+  title: PropTypes.string,
+  img: PropTypes.string,
+  quantity: PropTypes.number,
+  price: PropTypes.number,
+  removeFromBasket: PropTypes.func,
+  decrementBasketCount: PropTypes.func
 };
 
 const mapDispatchToProps = dispatch => {

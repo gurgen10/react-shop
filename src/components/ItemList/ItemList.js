@@ -12,9 +12,8 @@ class ItemList extends Component {
   constructor(props) {
     super(props);
     this.props.showLoading(true);
-
-
   }
+
     goods = [];
 
     fetchDate = () => {
@@ -40,7 +39,8 @@ class ItemList extends Component {
         if (this.goods.length > 0) {
           const items = this.goods.map(item => {
             return (
-              <li key={item.id}><Item item ={item}/></li>
+              <li key={item.id}><Item
+                item ={item}/></li>
             );
           });
 
@@ -60,11 +60,12 @@ class ItemList extends Component {
     }
 
     static propTypes = {
+      basket: PropTypes.array,
       title: PropTypes.string,
       maxPrice: PropTypes.number,
       searchText: PropTypes.string,
-      isLoading: PropTypes.bool.isRequired,
-      showLoading: PropTypes.func.isRequired
+      isLoading: PropTypes.bool,
+      showLoading: PropTypes.func
     }
 }
 
@@ -72,7 +73,8 @@ const mapStateToProps = state => {
   return {
     title: state.search.title,
     maxPrice: state.search.maxPrice,
-    isLoading: state.common.isLoading
+    isLoading: state.common.isLoading,
+    basket: state.basket.basket
   };
 };
 

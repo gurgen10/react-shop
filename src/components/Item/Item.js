@@ -4,12 +4,13 @@ import { bindActionCreators } from 'redux';
 import { Alert, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import './Item.css';
-import { addToBasket } from '../../Actions/basketAction';
 import { incrementBasketCount } from '../../Actions/commonAction';
+import { addToBasket } from '../../Actions/basketAction';
 
 class Item extends Component {
     onClickAddItemToBasket = (e) => {
       e.preventDefault();
+
       this.props.addToBasket(this.props.item);
       this.props.incrementBasketCount();
     }
@@ -50,7 +51,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  return { ...bindActionCreators({ addToBasket, incrementBasketCount }, dispatch) };
+  return { ...bindActionCreators({ incrementBasketCount, addToBasket }, dispatch) };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Item);

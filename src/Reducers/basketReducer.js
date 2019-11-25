@@ -6,43 +6,28 @@ const initialSate = {
 };
 
 const basketReducer = (state = initialSate, action) => {
-  let items = state.basket;
-
   switch (action.type) {
     case ADD_TO_BASKET: {
-      action.payload.quantity = 1;
-      let founded = false;
-      console.log('items', items);
-      console.log('basket', state.basket);
-      console.log('--------------');
-      
+      let newBasket = state.basket;
 
-      items.forEach(item => {
-        if (item.id === action.payload.id) {
-          console.log(item);
-
-          item.quantity++;
-          console.log(item);
-
-          founded = true;
-        }
-      });
-
-      if (!founded) {
-        items.push(action.payload);
+      const foundItem = state.basket.filter(item => item.id === action.payload.id)[0];
+      if (foundItem) {
+        newBasket = state.basket.filter(item => item.id !== action.payload.id);
+        foundItem.quantity++;
+        newBasket.push(foundItem);
+      } else {
+        newBasket.push({ ...action.payload, quantity: 1 });
       }
-
       return {
         ...state,
-        basket: [...items],
+        basket: newBasket,
         totalPrice: state.totalPrice + action.payload.price
       };
     }
     case REMOVE_FROM_BASKET: {
-      items = items.filter(item => item.id !== action.payload.id);
       return {
         ...state,
-        basket: items,
+        basket: state.basket.filter(item => item.id !== action.payload.id),
         totalPrice: state.totalPrice - (action.payload.price * action.payload.quantity)
       };
     }

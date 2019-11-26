@@ -9,15 +9,31 @@ import { showPurchaseModal, decrementBasketCount } from '../../Actions/commonAct
 import { emptyBasket } from '../../Actions/basketAction';
 import { buyItems } from '../../Actions/BuyAction';
 
+/**
+ * Class represents a basket.
+ * @extends Component
+ */
 class Basket extends Component {
+  /**
+   * handel a closing a modal
+   * @returns {void}
+   */
   handleClose = () => {
     this.props.showPurchaseModal(false);
   }
 
+  /**
+   * handel a opening a modal
+   * @returns {void}
+   */
   handleShow = () => {
     this.props.showPurchaseModal(true);
   }
 
+  /**
+   * Save purchased items
+   * @returns {void}
+   */
   savePurchase = () => {
     let quantity = 0;
     this.props.basket.forEach(el => {
@@ -29,11 +45,15 @@ class Basket extends Component {
     this.props.showPurchaseModal(false);
   }
 
+  /**
+   * Render Basket page
+   * @returns {void}
+   */
   render() {
     const totalStyle = {
       background: 'yellow'
     };
-    
+
     const basketArray = this.props.basket;
     const emptyTableRow = (<tr><td className="text-center" colSpan='6'>List Empty</td></tr>);
     const totalTableRow = (<tr style={totalStyle}>
@@ -71,6 +91,10 @@ class Basket extends Component {
     );
   }
 
+  /**
+   * Modal view jsx code
+   * @returns {void}
+   */
   showModal = () => {
     return (
       <Modal show={this.props.show} onHide={this.handleClose}>
@@ -91,6 +115,7 @@ class Basket extends Component {
   };
 }
 
+/** Prop Types validation for basket page */
 Basket.propTypes = {
   basket: PropTypes.array,
   title: PropTypes.string,
@@ -105,6 +130,11 @@ Basket.propTypes = {
   decrementBasketCount: PropTypes.func
 };
 
+/**
+ * Redux mapStateToProps function
+ * @param {Object} state - gets current state and pass to props
+ * @returns {Object} state to props object
+ */
 const mapStateToProps = state => {
   return {
     basket: state.basket.basket,
@@ -113,8 +143,14 @@ const mapStateToProps = state => {
   };
 };
 
+/**
+ * Redux dispatchStateToProps function
+ * @param {Object} dispatch - gets current state and pass to props
+ * @returns {Object} props methods to change state
+ */
 const dispatchStateToProps = dispatch => {
   return { ...bindActionCreators({ showPurchaseModal, emptyBasket, buyItems, decrementBasketCount }, dispatch) };
 };
 
+/** connect redux function */
 export default connect(mapStateToProps, dispatchStateToProps)(Basket);

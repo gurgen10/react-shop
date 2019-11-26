@@ -2,7 +2,15 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
 
+/**
+ * Class representing Not Found component
+ * @extends Component
+ */
 class NotFound extends Component {
+  /**
+   * Rendering Basket Not Found component
+   * @returns {void}
+   */
   render() {
     return (
       <div>

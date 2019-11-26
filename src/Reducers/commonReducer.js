@@ -1,8 +1,9 @@
-import { 
-  BASKET_COUNT_INCREMENT, 
+import {
+  BASKET_COUNT_INCREMENT,
   BASKET_COUNT_DECREMENT,
   SHOW_PURCHASE_MODAL,
-  SHOW_LOADING } from '../actionTypes';
+  SHOW_LOADING
+} from '../actionTypes';
 
 const initialSate = {
   basketItemCount: 0,

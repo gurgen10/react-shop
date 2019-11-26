@@ -5,7 +5,15 @@ import { connect } from 'react-redux';
 import { Navbar, Nav } from 'react-bootstrap';
 import './Header.css';
 
+/**
+ * Class representing App component
+ * @extends Component
+ */
 class Header extends Component {
+  /**
+   * Rendering Header component
+   * @returns {void}
+   */
   render() {
     return (
       <>

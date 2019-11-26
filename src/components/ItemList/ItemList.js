@@ -8,7 +8,15 @@ import Item from '../Item';
 import Loading from '../Loading';
 import { showLoading } from '../../Actions/commonAction';
 
+/**
+ * Representing a Item List.
+ * @extends Component
+ */
 class ItemList extends Component {
+  /**
+   * Create an Item List
+   * @param {Object} props - The props value
+   */
   constructor(props) {
     super(props);
     this.props.showLoading(true);
@@ -16,6 +24,10 @@ class ItemList extends Component {
 
     goods = [];
 
+    /**
+     * Fetching goods from json
+     * @returns {void}
+     */
     fetchDate = () => {
       setTimeout(() => {
         this.goods = goods.filter(item => {
@@ -30,6 +42,10 @@ class ItemList extends Component {
       }, 1500);
     }
 
+    /**
+     * Rendering Items List
+     * @returns {void}
+     */
     render() {
       this.fetchDate();
 

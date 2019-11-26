@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import './Loading.css';
 
+/**
+ * Class representing Basket component
+ * @extends Component
+ */
 class BasketItem extends Component {
+  /**
+   * Rendering Basket Item component
+   * @returns {void}
+   */
   render() {
     const styleSpinner = {
       left: '45%',

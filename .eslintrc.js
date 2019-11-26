@@ -26,7 +26,30 @@ module.exports = {
     ],
     "rules": {
         "semi": [2, "always"],
-        "space-before-function-paren": ["error", "never"]
+        "space-before-function-paren": ["error", "never"],
+        "valid-jsdoc": [
+            "error",
+            {
+              "requireReturn": true,
+              "requireReturnType": true,
+              "requireParamDescription": true,
+              "requireReturnDescription": true,
+              "preferType": {
+                "String": "string",
+                "object": "Object"
+              }
+            }
+          ],
+          "require-jsdoc": [
+            "error",
+            {
+              "require": {
+                "FunctionDeclaration": true,
+                "MethodDefinition": true,
+                "ClassDeclaration": true
+              }
+            }
+          ],
     },
     "settings": {
         "react": {

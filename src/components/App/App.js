@@ -8,8 +8,15 @@ import Basket from '../Basket';
 import NotFound from '../NotFound';
 
 // https://medium.com/js-imaginea/best-practices-with-react-and-redux-application-1e94a6f214a0
-
+/**
+ * Class representing App component
+ * @extends Component
+ */
 class App extends Component {
+  /**
+   * Rendering App component
+   * @returns {void}
+   */
   render() {
     // todo: change Header component
     return (

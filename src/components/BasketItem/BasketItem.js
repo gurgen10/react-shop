@@ -7,24 +7,36 @@ import './BasketItem.css';
 import { removeFromBasket } from '../../Actions/basketAction';
 import { decrementBasketCount } from '../../Actions/commonAction';
 
+/**
+ * Representing a Basket Item.
+ * @extends Component
+ */
 class BasketItem extends Component {
-    onClickRemoveItemFromBasket = () => {
-      this.props.removeFromBasket(this.props.basketItem);
-      this.props.decrementBasketCount(this.props.basketItem.quantity);
-    }
+  /**
+   * Removes item from basket
+   * @returns {void}
+   */
+  onClickRemoveItemFromBasket = () => {
+    this.props.removeFromBasket(this.props.basketItem);
+    this.props.decrementBasketCount(this.props.basketItem.quantity);
+  }
 
-    render() {
-      return (
-        <>
-          <td><img className="basket-img" src={this.props.basketItem.img} alt={this.props.basketItem.title}/></td>
-          <td>{ this.props.basketItem.title }</td>
-          <td>{ this.props.basketItem.quantity }</td>
-          <td>{ this.props.basketItem.price + ' ֏' }</td>
-          <td>{ (this.props.basketItem.quantity * this.props.basketItem.price) + ' ֏' }</td>
-          <td><Button onClick={ this.onClickRemoveItemFromBasket } variant="danger">Remove from Basket</Button></td>
-        </>
-      );
-    }
+  /**
+   * Rendering Basket Item component
+   * @returns {void}
+   */
+  render() {
+    return (
+      <>
+        <td><img className="basket-img" src={this.props.basketItem.img} alt={this.props.basketItem.title}/></td>
+        <td>{ this.props.basketItem.title }</td>
+        <td>{ this.props.basketItem.quantity }</td>
+        <td>{ this.props.basketItem.price + ' ֏' }</td>
+        <td>{ (this.props.basketItem.quantity * this.props.basketItem.price) + ' ֏' }</td>
+        <td><Button onClick={ this.onClickRemoveItemFromBasket } variant="danger">Remove from Basket</Button></td>
+      </>
+    );
+  }
 }
 
 BasketItem.propTypes = {

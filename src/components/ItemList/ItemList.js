@@ -15,6 +15,7 @@ import { showLoading } from '../../Actions/commonAction';
 class ItemList extends Component {
   /**
    * Create an Item List
+   * @constructor
    * @param {Object} props - The props value
    */
   constructor(props) {

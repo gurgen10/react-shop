@@ -40,7 +40,7 @@ class ItemList extends Component {
         });
 
         this.props.showLoading(false);
-      }, 1500);
+      }, 3000);
     }
 
     /**

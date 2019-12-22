@@ -20,7 +20,7 @@ class BasketItem extends Component {
     return (
       <>
         <div className='rounded-circle  position-relative'>
-          <img className='rounded-circle mx-auto' src='https://imga.apk.tools/screenshots/4/f/6/com.korean.sexygirl.wallpaper_2.png' alt='Loading'/>
+          <img style={{width: '300px'}} className='rounded-circle mx-auto' src='https://previews.123rf.com/images/venusvi/venusvi1805/venusvi180500077/103370869-sexy-girl-with-white-cloth-beautiful-girl-in-sexy-towel-on-the-background-white-room-.jpg' alt='Loading'/>
 
           <div className='spinner-border text-danger position-absolute' role='status' style={styleSpinner}>
             <span className='sr-only'>Loading...</span>

@@ -12,6 +12,7 @@ class Home extends Component {
    * @returns {void}
    */
   render() {
+	  console.log(this.props)
     return (
       <>
         <Search/>

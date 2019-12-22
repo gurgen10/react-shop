@@ -22,7 +22,7 @@ class Header extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" >
             <Nav className="mr-auto">
-              <Nav.Link as={NavLink} exact to="/home" className="nav-link">Home</Nav.Link>
+              <Nav.Link as={NavLink} exact to={{pathname:"/home", state:"some test"}} className="nav-link">Home</Nav.Link>
             </Nav>
             <Nav.Item>
               <Nav.Link as={NavLink} exact to="/basket" className="nav-link">
